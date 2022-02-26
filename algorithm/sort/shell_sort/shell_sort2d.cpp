@@ -3,7 +3,7 @@
 using namespace std;
 void shell_sort(vector<int> &nums){
     for(int step=nums.size()/2;step>=1;step/=2){
-        for(int i=step;i<nums.size();i++){
+        for(int i=step;i<nums.size();i+=step){
             int j=i-step;
             int val=nums[i];
             while(j>=0 && nums[j]>val){
