@@ -5,14 +5,14 @@ void heapify(vector<int> &nums,int idx,int max){
     int left=2*idx+1;
     int right=2*idx+2;
     int largest=idx;
-    if(left<max && nums[left]<nums[largest]){
+    if(left<max && nums[left]>nums[largest]){
         largest=left;
     }
-    if(right<max && nums[right]<nums[largest]){
+    if(right<max && nums[right]>nums[largest]){
         largest=right;
     }
-    if(largest!=idx){
-        swap(nums[largest],nums[idx]);
+    if(idx!=largest){
+        swap(nums[idx],nums[largest]);
         heapify(nums,largest,max);
     }
 }
@@ -24,7 +24,7 @@ void buildHeap(vector<int> &nums){
 void heap_sort(vector<int> &nums){
     buildHeap(nums);
     for(int i=nums.size()-1;i>=1;i--){
-        swap(nums[0],nums[i]);
+        swap(nums[i],nums[0]);
         heapify(nums,0,i);
     }
 }
